@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <title>RecoAI – Web Recommender</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon">✨</span>
+          <div>
+            <h1>RecoAI</h1>
+            <p>Python-powered recommendations in your browser</p>
+          </div>
+        </div>
+        <div class="header-badge">
+          <span class="badge-dot"></span>
+          Pyodide · no server
+        </div>
+      </div>
+      <div class="header-tabs">
+        <button class="cat-tab active" data-category="movies">🎬 Movies</button>
+        <button class="cat-tab" data-category="books">📚 Books</button>
+        <button class="cat-tab" data-category="products">🛍️ Products</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="loading" class="loading-banner">
+        <div class="spinner"></div>
+        <span>Loading Python engine (Pyodide)…</span>
+      </div>
+
+      <div class="layout">
+        <section class="items-section">
+          <div class="section-header">
+            <h2>Rate Items</h2>
+            <span class="count-badge"><span id="rated-count">0</span> rated</span>
+          </div>
+
+          <div class="tag-tabs" id="tag-tabs"></div>
+
+          <div class="items-grid" id="items-grid"></div>
+        </section>
+
+        <aside class="recs-panel">
+          <div class="section-header">
+            <h2>Recommendations</h2>
+          </div>
+
+          <div class="algo-toggle">
+            <button class="algo-btn active" data-algo="content">
+              <span>🔍</span><span>Content-Based</span>
+            </button>
+            <button class="algo-btn" data-algo="collaborative">
+              <span>👥</span><span>Collaborative</span>
+            </button>
+          </div>
+
+          <div class="algo-desc" id="algo-desc">
+            Finds items with tags similar to your highly-rated picks.
+          </div>
+
+          <button id="recommend-btn" class="recommend-btn" disabled>
+            <span>✨</span> Get Recommendations
+          </button>
+
+          <div id="empty-hint" class="empty-hint">
+            Rate at least one item to get personalized suggestions.
+          </div>
+
+          <div class="recs-list" id="recs-list"></div>
+
+          <div class="algo-note">
+            <div class="algo-title">How it works</div>
+            <p id="algo-note-text">
+              Your ratings build a <strong>genre profile</strong>. Python computes
+              <strong>cosine similarity</strong> between that profile and every
+              unrated item to rank suggestions.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

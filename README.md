@@ -1,6 +1,6 @@
 # RecoAI – Recommendation System
 
-This project is a simple AI-based recommendation system built in Python. It suggests **movies**, **books**, or **products** to the user based on their ratings and preferences using two classic recommendation approaches.
+This project is a simple AI-based recommendation system built in Python. It suggests **movies**, **books**, or **products** to the user based on their ratings and preferences using two classic recommendation approaches[web:12][web:21].
 
 ## Features
 
@@ -15,7 +15,7 @@ This project is a simple AI-based recommendation system built in Python. It sugg
   - Selecting a category
   - Rating items from 1–5
   - Choosing the algorithm (`content` or `collaborative`)
-  - Viewing top recommendations with scores and reasons
+  - Viewing top recommendations with scores and reasons[web:12]
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@ This project is a simple AI-based recommendation system built in Python. It sugg
 - **Concepts Used:**
   - Cosine similarity
   - Tag-based item vectors
-  - User–item rating profiles
+  - User–item rating profiles[web:12]
 
 ## How It Works
 
@@ -38,7 +38,7 @@ This project is a simple AI-based recommendation system built in Python. It sugg
   - A tag vector is created.
   - Cosine similarity is computed between the item vector and the user profile.
   - Items are ranked based on similarity.
-  - A short textual reason is shown (for example: `matches Sci-Fi, Drama`).
+  - A short textual reason is shown (for example: `matches Sci-Fi, Drama`)[web:12].
 
 ### 2. Collaborative Filtering
 
@@ -48,7 +48,7 @@ This project is a simple AI-based recommendation system built in Python. It sugg
 - For each unrated item:
   - A predicted score is calculated from similar users’ ratings.
   - Scores are normalized to a percentage (0–100%).
-  - A reason like `85% match with users like you` is displayed.
+  - A reason like `85% match with users like you` is displayed[web:12].
 
 ## Datasets
 
@@ -56,7 +56,7 @@ The project includes built-in datasets:
 
 - **Movies:** Popular and classic films with tags like Action, Drama, Sci-Fi, etc.
 - **Books:** Fiction, non-fiction, classics, fantasy, sci-fi, etc.
-- **Products:** Common consumer products (electronics, fitness, home, etc.).
+- **Products:** Common consumer products (electronics, fitness, home, etc.)[web:12].
 
 Each item includes:
 - `id`
@@ -67,13 +67,25 @@ Each item includes:
 - `subtitle` (director/author/brand)
 - `image` (placeholder)
 
-## Usage
+## Project Structure
+
+- `app.py`  
+  Core AI recommendation system (CLI-based). This is the main file for the CodSoft AI internship task.
+
+- `web/`  
+  Optional web interface built on top of the same recommendation idea:
+  - `index.html` – Frontend UI for the recommendation system.
+  - `style.css` – Styling for the web page.
+  - `app.js` – Client-side logic (handles interactions in the web UI).
+  - `recommendation.py` – Backend Python logic for the web version (shares the same recommendation logic as `app.py`)[web:21].
+
+## Usage (CLI – CodSoft Task)
 
 1. Make sure Python 3 is installed.
-2. Run the script:
+2. Run the CLI script:
 
 ```bash
-python recoai.py
+python app.py
 ```
 
 3. Follow the prompts:
@@ -102,6 +114,17 @@ Recommendations:
    Score: 92.3%  |  Reason: matches Action, Drama
 ```
 
+## Optional Web Version
+
+If you want to try the web-based interface:
+
+```bash
+cd web
+python recommendation.py
+```
+
+Then open the URL shown in the terminal (usually `http://127.0.0.1:5000`) in your browser to use the web UI.
+
 ## Learning Objectives
 
 This project demonstrates:
@@ -109,7 +132,7 @@ This project demonstrates:
 - Implementation of **content-based** and **collaborative** filtering from scratch.
 - Use of cosine similarity for comparing user preferences and items.
 - Working with structured datasets and user interaction via CLI.
-- Building an AI-powered recommendation system without external ML libraries.
+- Building an AI-powered recommendation system without external ML libraries[web:12].
 
 ## Credits
 
